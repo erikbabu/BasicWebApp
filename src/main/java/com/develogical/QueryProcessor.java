@@ -8,6 +8,12 @@ public class QueryProcessor {
                     "English poet, playwright, and actor, widely regarded as the greatest " +
                     "writer in the English language and the world's pre-eminent dramatist.";
         }
+
+        if (query.toLowerCase().contains("erik")) {
+            return "Erik Babu (23 October 1996 - Present) is an awesome " +
+                "DevOps engineer with a keen eye on how to deploy.";
+        }
+
         return "";
     }
 }
