@@ -1,8 +1,20 @@
 package com.develogical;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class QueryProcessor {
+
+    private static final Map<String, String> word_assoc= new HashMap<>();
+
+    static {
+        word_assoc.put("eiffel tower", "Paris");
+        word_assoc.put("banana", "yellow");
+        word_assoc.put("james bond", "Sean Connery");
+        word_assoc.put("theresa may", "2016");
+    }
 
     public String process(String query) {
         if (query.toLowerCase().contains("shakespeare")) {
@@ -43,6 +55,7 @@ public class QueryProcessor {
             return maximum.toString();
         }
 
+
         if (query.toLowerCase().contains("both a square and a cube")) {
             String queryLower = query.toLowerCase();
             String numbers = queryLower.substring(query.lastIndexOf(':') + 1);
@@ -71,6 +84,12 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("sequence")) {
             int n = Integer.parseInt(query.replaceAll("[^-?0-9]+", " ").trim());
             return String.valueOf(fibonacci(n));
+        }
+
+        for (String key: word_assoc.keySet()) {
+            if (query.toLowerCase().contains(key)) {
+                return word_assoc.get(key);
+            }
         }
 
         return "";

@@ -51,6 +51,13 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void wordAssociations() throws Exception {
+        assertThat(queryProcessor.process("Which city is the Eiffel tower in?"), containsString("Paris"));
+        assertThat(queryProcessor.process("What colour is a banana?"), containsString("yellow"));
+        assertThat(queryProcessor.process("James bond"), containsString("Sean Connery"));
+        assertThat(queryProcessor.process("theresa may"), containsString("2016"));
+    }
+
     public void knowsTheSquareAndCube() throws Exception {
         assertThat(queryProcessor.process("which of the following numbers is both a square and a cube: 7, 64"), containsString("64"));
     }
