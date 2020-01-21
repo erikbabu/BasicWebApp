@@ -68,6 +68,11 @@ public class QueryProcessor {
             return Arrays.toString(primes);
         }
 
+        if (query.toLowerCase().contains("sequence")) {
+            int n = Integer.parseInt(query.replaceAll("[^-?0-9]+", " ").trim());
+            return String.valueOf(fibonacci(n));
+        }
+
         return "";
     }
 
@@ -89,6 +94,13 @@ public class QueryProcessor {
         }
 
         return true;
+    }
+
+    public int fibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
 }
