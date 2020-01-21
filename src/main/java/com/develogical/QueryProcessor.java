@@ -43,6 +43,11 @@ public class QueryProcessor {
                 return String.valueOf(Integer.parseInt(words[2]) * Integer.parseInt(words[5]));
             }
 
+            if (query.toLowerCase().contains("power")) {
+                String[] words = query.split(" ");
+                return String.valueOf(Integer.parseInt(words[2]) * Integer.parseInt(words[5]));
+            }
+
 
             if (query.toLowerCase().contains("numbers is the largest")) {
                 String queryLower = query.toLowerCase();
@@ -60,6 +65,8 @@ public class QueryProcessor {
                 String[] words = query.split(" ");
                 return String.valueOf(Integer.parseInt(words[2]) - Integer.parseInt(words[4]));
             }
+
+            if (query.toLowerCase().contains("power"))
 
 
             if (query.toLowerCase().contains("both a square and a cube")) {

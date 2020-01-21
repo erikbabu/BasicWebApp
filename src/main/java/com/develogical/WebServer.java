@@ -34,7 +34,9 @@ public class WebServer {
       if (query == null) {
         new IndexPage().writeTo(resp);
       } else {
-        new ResultsPage(query, new QueryProcessor().process(query)).writeTo(resp);
+        String process = new QueryProcessor().process(query);
+        System.out.println(process);
+        new ResultsPage(query, process).writeTo(resp);
       }
     }
   }
