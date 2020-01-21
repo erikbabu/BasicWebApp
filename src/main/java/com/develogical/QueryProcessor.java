@@ -13,6 +13,11 @@ public class QueryProcessor {
             return "The LADS™️";
         }
 
+        if (query.toLowerCase().contains("erik")) {
+            return "Erik Babu (23 October 1996 - Present) is an awesome " +
+                "DevOps engineer with a keen eye on how to deploy.";
+        }
+
         return "";
     }
 
