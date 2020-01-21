@@ -20,6 +20,17 @@ public class QueryProcessor {
                 "DevOps engineer with a keen eye on how to deploy.";
         }
 
+        if (query.toLowerCase().contains("plus")) {
+            String[] words = query.split(" ");
+            return String.valueOf(Integer.parseInt(words[2]) + Integer.parseInt(words[4]));
+        }
+
+        if (query.toLowerCase().contains("multiplied")) {
+            String[] words = query.split(" ");
+            return String.valueOf(Integer.parseInt(words[2]) * Integer.parseInt(words[5]));
+        }
+
+
         if (query.toLowerCase().contains("numbers is the largest")) {
             String queryLower = query.toLowerCase();
             String numbers = queryLower.substring(query.lastIndexOf(':') + 1);
