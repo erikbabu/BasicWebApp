@@ -10,7 +10,7 @@ public class QueryProcessor {
         }
 
         if (query.toLowerCase().contains("what is your team name")) {
-            return "The LADS™️";
+            return "The LADS️";
         }
 
         if (query.toLowerCase().contains("erik")) {
