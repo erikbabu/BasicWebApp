@@ -46,6 +46,12 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void minusgNumebers() throws Exception {
+        assertThat(queryProcessor.process("what is 4 minus 5"), containsString("-1"));
+    }
+
+
+    @Test
     public void knowsTheLargestNumber() throws Exception {
         assertThat(queryProcessor.process("which of the following numbers is the largest: 10, 20"), containsString("20"));
     }
