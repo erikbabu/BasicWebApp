@@ -1,5 +1,7 @@
 package com.develogical;
 
+import java.util.Arrays;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -10,7 +12,7 @@ public class QueryProcessor {
         }
 
         if (query.toLowerCase().contains("what is your team name")) {
-            return "The LADS™️";
+            return "The LADS️";
         }
 
         if (query.toLowerCase().contains("erik")) {
@@ -21,6 +23,18 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("plus")) {
             String[] words = query.split(" ");
             return String.valueOf(Integer.parseInt(words[2]) + Integer.parseInt(words[4]));
+        }
+
+        if (query.toLowerCase().contains("numbers is the largest")) {
+            String queryLower = query.toLowerCase();
+            String numbers = queryLower.substring(query.lastIndexOf(':') + 1);
+            Integer maximum = Arrays.asList(numbers.split(","))
+                                    .stream()
+                                    .map(String::trim)
+                                    .mapToInt(Integer::parseInt)
+                                    .max()
+                                    .getAsInt();
+            return maximum.toString();
         }
 
         return "";
