@@ -56,6 +56,11 @@ public class QueryProcessor {
                 return maximum.toString();
             }
 
+            if (query.toLowerCase().contains("minus")) {
+                String[] words = query.split(" ");
+                return String.valueOf(Integer.parseInt(words[2]) - Integer.parseInt(words[4]));
+            }
+
 
             if (query.toLowerCase().contains("both a square and a cube")) {
                 String queryLower = query.toLowerCase();
