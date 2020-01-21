@@ -74,6 +74,11 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void power() throws Exception {
+        assertThat(queryProcessor.process("what is 2 to the power of 5"), containsString("32"));
+    }
+
+    @Test
     public void knowsFibonacciNumbers() throws Exception {
         assertThat(queryProcessor.process("what is the 5th number in the Fibonacci sequence"), containsString("5"));
     }
