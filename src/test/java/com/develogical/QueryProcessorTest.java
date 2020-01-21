@@ -56,6 +56,11 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void knowsPrimeNumbers() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers are primes: 7, 23, 4"), containsString("7, 23"));
+    }
+
+    @Test
     public void testSquareAndCube() throws Exception {
         int test = 64;
         assert(queryProcessor.isSquareAndCube(test));

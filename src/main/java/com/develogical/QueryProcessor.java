@@ -56,6 +56,18 @@ public class QueryProcessor {
             return Arrays.toString(maximum);
         }
 
+        if (query.toLowerCase().contains("are prime")) {
+            String queryLower = query.toLowerCase();
+            String numbers = queryLower.substring(query.lastIndexOf(':') + 1);
+            int[] primes = Arrays.stream(numbers.split(","))
+                .map(String::trim)
+                .mapToInt(Integer::parseInt)
+                .filter(this::isPrime)
+                .toArray();
+
+            return Arrays.toString(primes);
+        }
+
         return "";
     }
 
@@ -67,6 +79,16 @@ public class QueryProcessor {
         boolean isSquare = x == (squareRoot * squareRoot);
 
         return isCube && isSquare;
+    }
+
+    public boolean isPrime(int x) {
+        for (int divisor = 2; divisor <= x / 2; divisor++) {
+            if (x % divisor == 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
 }
