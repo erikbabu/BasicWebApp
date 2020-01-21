@@ -18,6 +18,11 @@ public class QueryProcessor {
                 "DevOps engineer with a keen eye on how to deploy.";
         }
 
+        if (query.toLowerCase().contains("plus")) {
+            String[] words = query.split(" ");
+            return String.valueOf(Integer.parseInt(words[2]) + Integer.parseInt(words[4]));
+        }
+
         return "";
     }
 
