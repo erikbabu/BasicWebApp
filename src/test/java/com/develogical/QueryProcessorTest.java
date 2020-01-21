@@ -74,6 +74,11 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void knowsFibonacciNumbers() throws Exception {
+        assertThat(queryProcessor.process("what is the 5th number in the Fibonacci sequence"), containsString("5"));
+    }
+
+    @Test
     public void testSquareAndCube() throws Exception {
         int test = 64;
         assert(queryProcessor.isSquareAndCube(test));
