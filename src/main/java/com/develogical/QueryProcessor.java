@@ -43,6 +43,14 @@ public class QueryProcessor {
             return maximum.toString();
         }
 
+        if (query.toLowerCase().contains("eiffel tower")) {
+            return "Paris";
+        }
+
+        if (query.toLowerCase().contains("banana")) {
+            return "yelloww";
+        }
+
         return "";
     }
 

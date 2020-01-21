@@ -49,4 +49,10 @@ public class QueryProcessorTest {
     public void knowsTheLargestNumber() throws Exception {
         assertThat(queryProcessor.process("which of the following numbers is the largest: 10, 20"), containsString("20"));
     }
+
+    @Test
+    public void wordAssociations() throws Exception {
+        assertThat(queryProcessor.process("Which city is the Eiffel tower in?"), containsString("Paris"));
+        assertThat(queryProcessor.process("What colour is a banana?"), containsString("yellow"));
+    }
 }
