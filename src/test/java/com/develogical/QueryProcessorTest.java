@@ -30,7 +30,13 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("what is your team name"), containsString("The LADS"));
     }
 
+    @Test
     public void knowsAboutErik() throws Exception {
         assertThat(queryProcessor.process("Erik"), containsString("deploy"));
+    }
+
+    @Test
+    public void knowsTheLargestNumber() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers is the largest: 10, 20"), containsString("20"));
     }
 }
