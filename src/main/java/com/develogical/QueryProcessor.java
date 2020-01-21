@@ -32,7 +32,30 @@ public class QueryProcessor {
             return maximum.toString();
         }
 
+        if (query.toLowerCase().contains("both a square and a cube")) {
+            String queryLower = query.toLowerCase();
+            String numbers = queryLower.substring(query.lastIndexOf(':') + 1);
+            int[] maximum = Arrays.asList(numbers.split(","))
+                .stream()
+                .map(String::trim)
+                .mapToInt(Integer::parseInt)
+                .filter(this::isSquareAndCube)
+                .toArray();
+
+            return Arrays.toString(maximum);
+        }
+
         return "";
+    }
+
+    public boolean isSquareAndCube(int x) {
+        int cubeRoot = (int) Math.round(Math.pow(x, 1.0/3.0));
+        boolean isCube = x == (cubeRoot * cubeRoot * cubeRoot);
+
+        int squareRoot = (int) Math.round(Math.pow(x, 1.0/2.0));
+        boolean isSquare = x == (squareRoot * squareRoot);
+
+        return isCube && isSquare;
     }
 
 }
