@@ -55,4 +55,19 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("Which city is the Eiffel tower in?"), containsString("Paris"));
         assertThat(queryProcessor.process("What colour is a banana?"), containsString("yellow"));
     }
+
+    public void knowsTheSquareAndCube() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers is both a square and a cube: 7, 64"), containsString("64"));
+    }
+
+    @Test
+    public void knowsPrimeNumbers() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers are primes: 7, 23, 4"), containsString("7, 23"));
+    }
+
+    @Test
+    public void testSquareAndCube() throws Exception {
+        int test = 64;
+        assert(queryProcessor.isSquareAndCube(test));
+    }
 }

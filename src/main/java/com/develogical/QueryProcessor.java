@@ -51,7 +51,53 @@ public class QueryProcessor {
             return "yelloww";
         }
 
+
+        if (query.toLowerCase().contains("both a square and a cube")) {
+            String queryLower = query.toLowerCase();
+            String numbers = queryLower.substring(query.lastIndexOf(':') + 1);
+            int[] maximum = Arrays.asList(numbers.split(","))
+                .stream()
+                .map(String::trim)
+                .mapToInt(Integer::parseInt)
+                .filter(this::isSquareAndCube)
+                .toArray();
+
+            return Arrays.toString(maximum);
+        }
+
+        if (query.toLowerCase().contains("are prime")) {
+            String queryLower = query.toLowerCase();
+            String numbers = queryLower.substring(query.lastIndexOf(':') + 1);
+            int[] primes = Arrays.stream(numbers.split(","))
+                .map(String::trim)
+                .mapToInt(Integer::parseInt)
+                .filter(this::isPrime)
+                .toArray();
+
+            return Arrays.toString(primes);
+        }
+
         return "";
+    }
+
+    public boolean isSquareAndCube(int x) {
+        int cubeRoot = (int) Math.round(Math.pow(x, 1.0/3.0));
+        boolean isCube = x == (cubeRoot * cubeRoot * cubeRoot);
+
+        int squareRoot = (int) Math.round(Math.pow(x, 1.0/2.0));
+        boolean isSquare = x == (squareRoot * squareRoot);
+
+        return isCube && isSquare;
+    }
+
+    public boolean isPrime(int x) {
+        for (int divisor = 2; divisor <= x / 2; divisor++) {
+            if (x % divisor == 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
 }
