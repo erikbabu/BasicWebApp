@@ -82,7 +82,9 @@ public class QueryProcessor {
                 return Arrays.toString(primes);
             }
 
-            if (query.toLowerCase().contains("sequence")) {
+            if (query.toLowerCase().contains("fibonacci sequence")) {
+                
+
                 int n = Integer.parseInt(query.replaceAll("[^-?0-9]+", " ").trim());
                 return String.valueOf(fibonacci(n));
             }
